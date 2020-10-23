@@ -1,0 +1,33 @@
+.favorites {
+    height: 100vh;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.favorites h1 {
+    margin-bottom: 3vh;
+}
+
+.favoritesInner {
+    display: flex;
+    justify-content: center;
+    height: 50%;
+    width: 90%;
+    position: relative;
+}
+
+.favSel {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.favoritesContainer {
+    width: 80%;
+    display: flex;
+    //flex-flow: nowrap;
+}

@@ -1,0 +1,22 @@
+.welcome-article {
+    position: absolute;
+    top: 70vh;
+    width: 60vw;
+    margin: 0 10vw;
+    border: 1px solid navy;
+    font-size: 1.4rem;
+}
+
+.welcome-article .art-title {
+    height: 30vh;
+    background: rgba(0,0,0,0.6);
+    color: rgb(255, 105, 0);
+}
+
+.welcome-article h1 {
+    text-shadow: 3px 1px black;
+}
+
+.aboutUs {
+    height: 200vh;
+} /*temp*/

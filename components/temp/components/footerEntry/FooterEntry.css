@@ -1,0 +1,21 @@
+.footer-entry {
+    margin: 20vh 0;
+    padding-left: 15vh;
+    width: 33%;
+}
+
+.footer-entry ul {
+    height: 100%;
+}
+
+.footer-entry li {
+    margin: 3vh 0;
+}
+
+.footer-entry h2:after {
+    margin-top: 2.5vh;
+    content: "";
+    display: block;
+    width: 66%;
+    border-bottom: 2px solid rgb(44, 45, 101);
+}

@@ -1,0 +1,21 @@
+.sliderFrame {
+    height: 80vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    position: relative;    
+}
+
+.sliderFrame img {
+    width: 100%;
+    height: auto;
+}
+
+.sliderFrame video {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: auto;
+}

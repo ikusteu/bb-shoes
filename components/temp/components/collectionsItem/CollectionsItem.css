@@ -1,0 +1,25 @@
+.collection-item {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    width: 23%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.collection-item .image-container {
+    height: 85%;
+    border: none;
+    border-radius: 5px;
+}
+
+.collection-item img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.collection-item h2 {
+    font-size: 1.2rem;
+    margin-bottom: 2vh;
+}

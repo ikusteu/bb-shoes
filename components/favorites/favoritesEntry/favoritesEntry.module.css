@@ -1,0 +1,27 @@
+.favoritesEntry {
+    margin: 1vw;
+    width: 100%;
+}
+
+.favoritesEntry img {
+    width: 100%;
+    height: auto;
+}
+
+.favoritesEntry figcaption {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.favoritesEntry h4 {
+    font-size: 1.2rem;
+}
+
+.favoritesEntry p {
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.2rem;
+}

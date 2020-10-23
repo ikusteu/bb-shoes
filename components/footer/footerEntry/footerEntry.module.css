@@ -1,0 +1,21 @@
+.footerEntry {
+    margin: 20vh 0;
+    padding-left: 15vh;
+    width: 33%;
+}
+
+.entryList {
+    height: 100%;
+}
+
+.listItem {
+    margin: 3vh 0;
+}
+
+.footerEntry h2:after {
+    margin-top: 2.5vh;
+    content: "";
+    display: block;
+    width: 66%;
+    border-bottom: 2px solid rgb(44, 45, 101);
+}

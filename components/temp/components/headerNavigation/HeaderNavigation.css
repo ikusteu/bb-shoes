@@ -1,0 +1,60 @@
+.navigation {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 10vh;
+}
+
+.navbar {
+    width: 66vw;
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    align-items: center;
+}
+
+.navbar li {
+    padding: 1vw;
+    margin: 3px;
+}
+
+.navbar li:hover {
+    color: rgb(255, 105, 0);
+    cursor: pointer;
+}
+
+.hidden {
+    height: 40vh;
+    width: 70%; 
+    position: absolute;
+    left: 15%;
+    top: 12vh;
+    background-color: white;
+    color: black;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    
+    transition: .5s .5s ease-in;
+    display: none;
+    border: 1px solid black;
+}
+
+.shoes:hover .shoes-nav {
+    opacity: 0.95;
+    transition: .125s ease-out;
+}
+.boots:hover .boots-nav {
+    opacity: 0.95;
+    transition: .125s ease-out;
+}
+.accessories:hover .accessories-nav {
+    opacity: 0.95;
+    transition: .125s ease-out;
+}
+.info:hover .info-nav {
+    opacity: 0.95;
+    transition: .125s ease-out;
+}
