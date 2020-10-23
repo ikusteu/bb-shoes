@@ -25,8 +25,27 @@ const About = () => {
             <p>{welcomeArticle.text}</p>
           </div>
         </article>
-        <div className={styles.aboutUs}></div>
-
+        
+        <div className={styles.aboutUs}>
+        </div>
+        
+        <section className={styles.split}>
+          <div className={styles.splitLeft}>
+            <div className={styles.imageContainer}>
+              <img src="/images/meet-bruno.jpeg" />                </div>
+            </div>
+          <div className={styles.splitRight}>
+            <article className={`${styles.meetBruno} ${styles.art}`}>
+              <div className={styles.artTitle}>
+                <h1>{welcomeArticle.title}</h1>
+              </div>
+              <div className={styles.artText}>              
+                <p>{welcomeArticle.text}</p>
+              </div>
+            </article>
+          </div>
+        </section>
+  
     </Layout>
   )
 }

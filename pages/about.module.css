@@ -49,3 +49,47 @@
     height: 200vh;
 } /*temp*/
 
+/* split pane */
+
+.split {
+    width: 100%;
+    height: 110vh;
+    overflow: hidden;
+    display: flex;
+    flex-flow: nowrap;
+}
+
+.split .imageContainer {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.split img {
+    height: 100%;
+    width: auto;
+}
+
+.meetBruno {
+    width: 100%;
+    padding: 4vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.split h1 {
+    margin: 2vw 0;
+}
+
+.split p {
+    margin: 0.4rem;
+    font-size: 1.2rem;
+    text-align: right; 
+}

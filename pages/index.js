@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout/layout'
+
 import Banner from '../components/banner/banner'
 import About from '../components/about/about'
 import Categories from '../components/categories/categories'
