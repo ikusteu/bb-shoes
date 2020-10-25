@@ -13,6 +13,10 @@ header {
   z-index: 100;
 }
 
+.-trnslt-1\/2 {
+  transform: translateX(-50%);
+}
+
 footer {
   height: 66vh;
   width: 100%;

@@ -1,15 +1,11 @@
 import SplitPane from '../components/splitPane/splitPane'
 import Article from '../components/article/article'
-import Image from '../components/image/image'
+import Video from '../components/video/video'
 import cn from 'classnames'
 
 const Staging = () => {
     const left = (
-        <div className={cn('w-full', 'h-full', 'relative', 'overflow-hidden', 'flex', 'items-stretch')}>
-            <video className={cn('absolute', 'h-full', 'w-auto')} autoPlay loop muted>
-                <source src="/images/Video_temp.mp4" type="video/mp4" />
-            </video> 
-        </div>
+        <Video src="/images/Video_temp.mp4" />
     )
 
     const right = (
@@ -17,13 +13,9 @@ const Staging = () => {
     )
 
     return (
-    <SplitPane rightStyles="flex items-center" left={left} right={right}/>
+    <SplitPane left={left} right={right}/>
     )
 }
-/*
-<div className="h-full border-2 overflow-hidden border-black border-solid flex items-center">
-            <img src="/images/meet-bruno.jpeg" />
-        </div>
-*/
+
 export default Staging;
 
