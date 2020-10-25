@@ -9,11 +9,11 @@ const Staging = () => {
     )
 
     const right = (
-        <Article title="Meet Bruno" textAlign="bottom" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>
+        <Article title="Meet Bruno" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>
     )
 
     return (
-    <SplitPane left={left} right={right}/>
+    <SplitPane additionalStyles="border-2 border-solid" leftStyles="border-2 border-solid p-20" rightStyles="border-2 border-solid flex flex-col justify-end" left={left} right={right}/>
     )
 }
 
