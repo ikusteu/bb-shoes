@@ -5,7 +5,7 @@ import Banner from '../components/banner/banner'
 import SplitPane from '../components/splitPane/splitPane'
 import Video from '../components/video/video'
 import Article from '../components/article/article'
-import Categories from '../components/categories/categories'
+import PhotoNav from '../components/photoNav/photoNav'
 import Collections from '../components/collections/collections'
 import Favorites from '../components/favorites/favorites'
 
@@ -26,7 +26,7 @@ const Index = () => {
         left={<Video src="/images/Video_temp.mp4" containerStyle="bb-border"/>}
         right={<Article title={aboutUs.title} text={aboutUs.text} />}
       />
-      <Categories />
+      <PhotoNav />
       <Collections />
       <Favorites />
     </Layout>

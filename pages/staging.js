@@ -1,21 +1,54 @@
-import SplitPane from '../components/splitPane/splitPane'
-import Article from '../components/article/article'
-import Video from '../components/video/video'
+import PhotoNav from '../components/photoNav/photoNav'
 import cn from 'classnames'
+import SplitPane from '../components/splitPane/splitPane'
+import Image from '../components/image/image'
+import Test from '../components/test/test.js'
 
 const Staging = () => {
+
+    const items = [
+        {
+            title: 'Shoes',
+            image: '/images/meet-bruno.jpeg',
+            caption: 'Caption'
+        },
+        {
+            title: 'Boots',
+            image: '/images/meet-bruno.jpeg',
+            caption: 'Caption'
+        },
+        {
+            title: 'Accessories',
+            image: '/images/meet-bruno.jpeg',
+            caption: 'Caption'
+        } ]
+
+    return (
+        <>
+            <PhotoNav 
+                title="Shop by Model" 
+                items={ items } 
+                imgRatio="landscape" 
+                captionStyles="text-4xl"
+            />
+            <div class="w-full h-48 border-1 border-solid border-black"></div>
+        </>
+    )
+
+    /*
     const left = (
-        <Video src="/images/Video_temp.mp4" />
+        <Image additionalStyles="object-cover" center src="/images/meet-bruno.jpeg" />
     )
 
     const right = (
-        <Article title="Meet Bruno" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>
+        <Image center src="/images/meet-bruno.jpeg" />
     )
 
     return (
-    <SplitPane additionalStyles="border-2 border-solid" leftStyles="border-2 border-solid p-20" rightStyles="border-2 border-solid flex flex-col justify-end" left={left} right={right}/>
-    )
+        <SplitPane left={left} right={right} />
+    //<PhotoNav />
+    )*/
+
 }
 
 export default Staging;
-
