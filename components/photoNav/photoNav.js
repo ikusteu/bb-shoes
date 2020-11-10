@@ -1,87 +1,66 @@
-import cn from 'classnames'
-import Image from '../image/image'
+import cn from "classnames";
+import NavItem from "./navItem/navItem";
 
-
-const NavItem = ( props ) => {
-
-    const childStyle = {
-        paddingBottom: ( props.imgRatio === "portrait" ) ?  '177.77%' 
-            : ( props.imgRatio === "landscape" ) 
-            ? '56.25%' 
-            : "100%"
-    }
+/*
     
-    return (
-        <div className={cn( 'w-full', 'p-4', 'relative' )}>
-            <div style={ childStyle } className={cn('h-0', 'relative', 'border-black', 'border-2', 'border-solid')}>
-                <Image 
-                    additionalStyles={cn( 'absolute', 'w-full')} 
-                    src={ props.item.image } 
-                    fitHeight={ props.imgRatio === 'portrait' } 
-                    center 
-                />
-            </div>
-        </div>
-    )
-}
-
-const PhotoNav = ( props ) => {
-
-    const containerStyle = {
-        width: `${( 1 / props.items.length ) * 100 }%`
+    props = {
+        items: [ {{ title: { string }, image: { url }, link: { url }--> href attribute }}, ... ]
+        imgRatio: { 'portrait' | 'landscape' | null } adjusts orientation of image/element ( 4:3 ) portrait / landscape, dafeult = null -> 1:1 box
+        innerPadding: { tailwindCSS string } padding between nav items
+        itemStyles: { tailwindCSS string } additional item styles
+        displayText: { 'button' | 'caption' | 'over' } title display type, default = null -> no text, just image 
+        textStyles: { [ tailwindCSS string ]* title additional display styles }
     }
-
-    return (
-        <section className={ cn( 'w-full', 'p-10', 'border-black border-2 border-solid') }>
-            <div className={ cn('flex', 'flex-center', 'h-full', 'border-black border-2 border-solid') }>
-                {
-                    props.items.map( item => (
-                        <div style={ containerStyle } >
-                            <NavItem 
-                                key={ item.title } 
-                                item={ item } 
-                                imgRatio={ props.imgRatio } 
-                                button={( props.buttons )}
-                            />
-                            {
-                                ( item.caption ) && 
-                                <div className={ cn('h-20', 'flex', 'justify-center', 'items-center')}>
-                                    <h4 className={ cn([ props.captionStyles ])}>{ item.caption }</h4>
-                                </div>
-                            }
-                        </div>
-                    ))
-                }
-            </div>
-        </section>
-    )
-}
-
-/*const PhotoNav = ( props ) => {
-    
-
-
-    const border = 'border-solid border-2'
-
-    return (
-        <section className={ cn( [styles.height], [styles.width], 'flex', 'flex-col', 'justify-space-between', [border], [styles.margin || `${styles.marginX} ${styles.marginY}`] ) } >
-            <h1 className={ cn( 'w-full', 'text-center', 'mb-10', [border] ) } >{ props.title }</h1>
-            <div className={ cn( 'flex', 'justify-center', [border], 'border-red', 'h-1/2' ) } >
-                {
-                    props.items.map(
-                        item => (
-                            <figure key={ item } className={ cn( 'w-3/8', 'flex-1', 'm-5', 'h-68', 'flex', 'justify-center', 'relative' , 'overflow-hidden' ) } >
-                                <Image center fitHeight additionalStyles="object-cover relative" title="Shop by Category" src={`/images/item-${item.toLowerCase()}.jpeg`} />
-                                <Button additionalStyles="absolute bottom-1/8 rounded-xl" text={ item } />
-                            </figure>
-                        )
-                    )
-                        }
-            </div>
-        </section>
-    );
-}
+      
 */
-    
-    
+
+const PhotoNav = (props) => {
+  const numItems = props.items.length;
+
+  const styles = {
+    padding: props.padding || "p-0",
+
+    textStyles:
+      props.textStyles ||
+      (props.displayText === "button" &&
+        cn(
+          "sm:text-xs sm:p-2",
+          "md:text-lg md:p-2",
+          "lg:text-2xl lg:p-3",
+          "xl:text-4xl xl:p-5"
+        )) ||
+      (props.displayText === "caption" &&
+        cn(
+          "sm:text-sm sm:p-2",
+          "md:text-xl md:p-3",
+          "lg:text-2xl lg:p-6",
+          "xl:text-4xl xl:p-8"
+        )) ||
+      (props.displayText === "over" &&
+        cn("sm:text-lg", "md:text-2xl", "lg:text-3xl", "xl:text-4xl")),
+
+    innerPadding:
+      props.innerPadding || cn("sm:p-2", "md:p-3", "lg:p-4", "xl:p-6"),
+  };
+
+  return (
+    <section className={cn("w-full", [styles.padding])}>
+      <div className={cn("flex", "flex-center", "h-full")}>
+        {props.items.map((item) => (
+          <NavItem
+            item={item}
+            key={item.title}
+            numItems={numItems}
+            imgRatio={props.imgRatio}
+            displayText={props.displayText}
+            textStyles={styles.textStyles}
+            innerPadding={props.innerPadding}
+            itemStyles={props.itemStyles}
+          />
+        ))}
+      </div>
+    </section>
+  );
+};
+
 export default PhotoNav;

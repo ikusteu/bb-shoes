@@ -1,54 +1,39 @@
-import PhotoNav from '../components/photoNav/photoNav'
-import cn from 'classnames'
-import SplitPane from '../components/splitPane/splitPane'
-import Image from '../components/image/image'
-import Test from '../components/test/test.js'
+import PhotoNav from "../components/photoNav/photoNav";
+import cn from "classnames";
 
 const Staging = () => {
+  const items = [
+    {
+      title: "Shoes",
+      image: "/images/meet-bruno.jpeg",
+      link: "/",
+    },
+    {
+      title: "Boots",
+      image: "/images/meet-bruno.jpeg",
+      link: "/",
+    },
+    {
+      title: "Accessories",
+      image: "/images/meet-bruno.jpeg",
+      link: "/",
+    },
+  ];
 
-    const items = [
-        {
-            title: 'Shoes',
-            image: '/images/meet-bruno.jpeg',
-            caption: 'Caption'
-        },
-        {
-            title: 'Boots',
-            image: '/images/meet-bruno.jpeg',
-            caption: 'Caption'
-        },
-        {
-            title: 'Accessories',
-            image: '/images/meet-bruno.jpeg',
-            caption: 'Caption'
-        } ]
-
-    return (
-        <>
-            <PhotoNav 
-                title="Shop by Model" 
-                items={ items } 
-                imgRatio="landscape" 
-                captionStyles="text-4xl"
-            />
-            <div class="w-full h-48 border-1 border-solid border-black"></div>
-        </>
-    )
-
-    /*
-    const left = (
-        <Image additionalStyles="object-cover" center src="/images/meet-bruno.jpeg" />
-    )
-
-    const right = (
-        <Image center src="/images/meet-bruno.jpeg" />
-    )
-
-    return (
-        <SplitPane left={left} right={right} />
-    //<PhotoNav />
-    )*/
-
-}
+  return (
+    <>
+      <PhotoNav
+        title="Shop by Model"
+        items={items}
+        imgRatio="portrait"
+        itemStyles="border-1 border-primary border-solid"
+        displayText="button"
+        innerPadding={cn()}
+        textStyles={cn()}
+      />
+      <div className="w-full h-48 border-1 border-solid border-black"></div>
+    </>
+  );
+};
 
 export default Staging;
