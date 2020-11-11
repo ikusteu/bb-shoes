@@ -1,11 +1,9 @@
-import styles from "./button.module.css";
 import cn from "classnames";
 
 /*
 
 props = {
     text: ( string, button text )
-    height: { tailwindCSS string } height property, dafault = h-12
     additionalStyles: ( string of tailwind classes, adds aditional styles )
 
 }
@@ -21,7 +19,6 @@ const Button = (props) => {
     <button
       className={cn(
         "mx-auto",
-        [styles.height],
         "border-4",
         "border-solid",
         "border-primary",

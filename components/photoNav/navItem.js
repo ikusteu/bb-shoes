@@ -1,6 +1,6 @@
-import Img from "../img/img";
+import Img from "../img";
 import Link from "next/link";
-import Button from "../button/button";
+import Button from "../button";
 import cn from "classnames";
 
 const NavItem = (props) => {

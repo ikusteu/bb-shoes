@@ -1,0 +1,15 @@
+{
+  "name": "img",
+  "version": "1.0.0",
+  "description": "Simple component, centers image and sets fit width/height",
+  "main": "img.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "image",
+    "img"
+  ],
+  "author": "Ivan Kušt",
+  "license": "ISC"
+}
