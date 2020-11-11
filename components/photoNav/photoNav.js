@@ -1,5 +1,5 @@
 import cn from "classnames";
-import NavItem from "./navItem/navItem";
+import NavItem from "./navItem";
 
 /*
     
@@ -24,23 +24,34 @@ const PhotoNav = (props) => {
       props.textStyles ||
       (props.displayText === "button" &&
         cn(
-          "sm:text-xs sm:p-2",
-          "md:text-lg md:p-2",
-          "lg:text-2xl lg:p-3",
-          "xl:text-4xl xl:p-5"
+          "xs:text-xs xs:p-1 ",
+          "sm:text-base sm:p-2",
+          "md:text-xl md:p-3",
+          "lg:text-2xl lg:p-4",
+          "xl:text-3xl xl:p-4"
         )) ||
       (props.displayText === "caption" &&
         cn(
-          "sm:text-sm sm:p-2",
-          "md:text-xl md:p-3",
-          "lg:text-2xl lg:p-6",
-          "xl:text-4xl xl:p-8"
+          "xs:text-xs xs:p-1",
+          "sm:text-lg sm:p-3",
+          "md:text-2xl md:p-4",
+          "lg:text-4xl lg:p-5",
+          "xl:text-5xl xl:p-6"
         )) ||
       (props.displayText === "over" &&
-        cn("sm:text-lg", "md:text-2xl", "lg:text-3xl", "xl:text-4xl")),
+        cn(
+          "xs:text-lg",
+          "sm:text-2xl",
+          "md:text-3xl",
+          "lg:text-4xl",
+          "xl:text-5xl"
+        )),
 
     innerPadding:
-      props.innerPadding || cn("sm:p-2", "md:p-3", "lg:p-4", "xl:p-6"),
+      props.innerPadding ||
+      cn("xs:p-1", "sm:p-1", "md:p-2", "lg:p-3", "xl:p-4"),
+
+    itemStyles: props.itemStyles || "rounded-md sm:rounded-sm",
   };
 
   return (
@@ -54,8 +65,8 @@ const PhotoNav = (props) => {
             imgRatio={props.imgRatio}
             displayText={props.displayText}
             textStyles={styles.textStyles}
-            innerPadding={props.innerPadding}
-            itemStyles={props.itemStyles}
+            innerPadding={styles.innerPadding}
+            itemStyles={styles.itemStyles}
           />
         ))}
       </div>

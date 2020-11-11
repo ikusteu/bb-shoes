@@ -1,4 +1,4 @@
-import PhotoNav from "../components/photoNav/photoNav";
+import PhotoNav from "../components/photoNav";
 import cn from "classnames";
 
 const Staging = () => {
@@ -26,8 +26,8 @@ const Staging = () => {
         title="Shop by Model"
         items={items}
         imgRatio="portrait"
-        itemStyles="border-1 border-primary border-solid"
-        displayText="button"
+        //itemStyles="border-2 rounded-md border-primary border-solid"
+        displayText="over"
         innerPadding={cn()}
         textStyles={cn()}
       />

@@ -4,10 +4,11 @@ module.exports = {
   theme: {
     extend: {},
     screens: {
-      sm: { max: "599px" },
-      md: { max: "899px", min: "600px" },
-      lg: { max: "1200px", min: "900px" },
-      xl: { min: "1200px" },
+      xs: { max: "480px" },
+      sm: { max: "768px", min: "481px" },
+      md: { max: "1024px", min: "769px" },
+      lg: { max: "1200px", min: "1025px" },
+      xl: { min: "1201px" },
     },
     inset: {
       auto: "auto",

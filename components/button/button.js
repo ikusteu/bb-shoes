@@ -27,9 +27,7 @@ const Button = (props) => {
         "border-primary",
         "flex",
         "items-center",
-        "p-8",
-        "text-2xl",
-        "font-bold",
+        "font-semibold",
         "bg-primary",
         "text-white",
         "hover:text-primary",
@@ -38,7 +36,7 @@ const Button = (props) => {
         [props.additionalStyles]
       )}
     >
-      {props.text}
+      <p className="px-1">{props.text}</p>
     </button>
   );
 };
