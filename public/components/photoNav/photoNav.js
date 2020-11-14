@@ -4,6 +4,8 @@ import NavItem from "./navItem";
 /*
     
     props = {
+        title: { string } main title
+        titleStyle: { tailwindCSS string } main title style
         items: [ {{ title: { string }, image: { url }, link: { url }--> href attribute }}, ... ]
         imgRatio: { 'portrait' | 'landscape' | null } adjusts orientation of image/element ( 4:3 ) portrait / landscape, dafeult = null -> 1:1 box
         innerPadding: { tailwindCSS string } padding between nav items
@@ -52,10 +54,23 @@ const PhotoNav = (props) => {
       cn("xs:p-1", "sm:p-1", "md:p-2", "lg:p-3", "xl:p-4"),
 
     itemStyles: props.itemStyles || "rounded-md sm:rounded-sm",
+
+    titleStyle:
+      props.titleStyle ||
+      cn(
+        "w-full",
+        "text-center",
+        "xs:text-xl xs:m-3",
+        "sm:text-2xl sm:m-4",
+        "md:text-4xl md:m-5",
+        "lg:text-5xl lg:m-6",
+        "xl:text-6xl xl:m-8"
+      ),
   };
 
   return (
     <section className={cn("w-full", [styles.padding])}>
+      <h1 className={cn([styles.titleStyle])}>{props.title}</h1>
       <div className={cn("flex", "flex-center", "h-full")}>
         {props.items.map((item) => (
           <NavItem

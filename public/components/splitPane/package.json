@@ -1,0 +1,11 @@
+{
+  "name": "splitpane",
+  "version": "1.0.0",
+  "description": "Split pane with inner content passed as props",
+  "main": "splitPane.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ivan Kušt",
+  "license": "ISC"
+}
