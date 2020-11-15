@@ -7,9 +7,11 @@ const Product = (props) => {
   /*
         props = {
             item: { name: {string}, price: {string}, image: {url}, category: {string} tags: {[string, ...]*} } item object,
-            itemStyle: { tailwindCSS string } style for full item
-            nameStyle: { tailwindCSS string },
-            priceStyle: { tailwindCSS string },
+            imageStyle: { tailwind string }
+            itemStyle: { tailwindCSS string if [0] === + add styles without changing default } style for full item
+            textStyle: { tailwindCSS string } additional style for text container
+            nameStyle: { tailwindCSS string if [0] === + add styles without changing default },
+            priceStyle: { tailwindCSS string if [0] === + add styles without changing default },
             button: { bool } display add to cart button ?
             buttonStyle: { tailwindCSS }
             ratio: { 'portrait' | 'landscape' } item sizing
@@ -26,30 +28,41 @@ const Product = (props) => {
     height: 0,
   }
 
+  const addToDefault = (string) => (string[0] === "+" ? string.shift() : false)
+
   const styles = {
     itemStyle:
-      props.itemStyle ||
       (props.ratio === "portrait" &&
         cn("xs:w-full", "sm:w-1/2", "md:w-1/3", "lg:w-1/4", "xl:w-1/5")) ||
-      (props.ratio === "landscape" &&
-        cn("xs:w-full", "sm:w-1/2", "md:w-1/3", "lg:w-1/4", "xl:w-1/4")),
-    nameStyle:
-      props.nameStyle ||
-      (props.ratio === "portrait" && cn("text-3xl")) ||
-      (props.ratio === "landscape" && cn("text-2xl")),
+      cn("xs:w-full", "sm:w-1/2", "md:w-1/3", "lg:w-1/4", "xl:w-1/4"),
+
+    nameStyle: (props.ratio === "portrait" && cn("text-3xl")) || cn("text-2xl"),
 
     priceStyle:
-      props.priceStyle ||
       (props.ratio === "portrait" && cn("text-2xl", "font-hairline")) ||
-      (props.ratio === "landscape" && cn("text-lg")),
+      cn("text-lg"),
 
     buttonStyle:
-      props.buttonStyle ||
       (props.ratio === "portrait" && cn("text-xl", "p-2")) ||
-      (props.ratio === "landscape" && cn("text-lg", "p-1")),
+      cn("text-lg", "p-1"),
 
-    innerPadding: props.innerPadding || cn("p-2"),
+    innerPadding:
+      props.innerPadding || cn("sm:p-1", "md:p-1", "lg:p-2", "xl:p-2"),
+
+    addStyles(element) {
+      if (props[element]) {
+        this[element] =
+          props[element][0] === "+"
+            ? `${this[element]} ${props[element].substring(1)}`
+            : props[element]
+      }
+    },
   }
+
+  styles.addStyles("itemStyle")
+  styles.addStyles("nameStyle")
+  styles.addStyles("priceStyle")
+  styles.addStyles("buttonStyle")
 
   const itemContent = (
     <div className={cn("relative", [styles.itemStyle], [styles.innerPadding])}>
@@ -59,20 +72,21 @@ const Product = (props) => {
             src={props.item.image}
             alt={`${props.item.category} ${props.item.name}`}
             additionalStyles={cn(
-              "h-fib",
-              "border-2" // border-primary border-solid"
+              "h-1/2",
+              "border-2", // border-primary border-solid"
+              [props.imageStyle]
             )}
-            center
             fitHeight
           />
           <div
             className={cn(
-              "h-1-fib",
+              "h-1/2",
               "w-full",
               "flex",
               "flex-col",
               "justify-around",
-              "items-center"
+              "items-start",
+              [props.textStyle]
             )}
           >
             <h3 className={cn([styles.nameStyle])}>{props.item.name}</h3>

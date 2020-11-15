@@ -28,9 +28,15 @@ const Shop = (props) => {
   }
 
   return (
-    <div className={cn("w-full", "flex", "flex-wrap", [styles.containerStyle])}>
+    <div className={cn("flex", "flex-wrap", [styles.containerStyle])}>
       {products.map((item) => (
-        <Product item={item} button ratio="portrait" />
+        <Product
+          item={item}
+          imageStyle="hover-top border-solid border-2 border-secondary-400 border-b-0 rounded-r-full bg-white top pl-8"
+          textStyle="hover-bottom border-solid border-2 border-secondary-400 border-t-0 rounded-r-full bg-white bottom pl-16"
+          itemStyle="+bb-box"
+          innerPadding="p-6"
+        />
       ))}
     </div>
   )

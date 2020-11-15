@@ -1,5 +1,5 @@
-import cn from "classnames";
-import NavItem from "./navItem";
+import cn from "classnames"
+import NavItem from "./navItem"
 
 /*
     
@@ -17,13 +17,14 @@ import NavItem from "./navItem";
 */
 
 const PhotoNav = (props) => {
-  const numItems = props.items.length;
+  const numItems = props.items.length
 
   const styles = {
+    container: props.styles.container || cn("w-full", [styles.padding]),
     padding: props.padding || "p-0",
 
     textStyles:
-      props.textStyles ||
+      props.styles.text ||
       (props.displayText === "button" &&
         cn(
           "xs:text-xs xs:p-1 ",
@@ -53,10 +54,10 @@ const PhotoNav = (props) => {
       props.innerPadding ||
       cn("xs:p-1", "sm:p-1", "md:p-2", "lg:p-3", "xl:p-4"),
 
-    itemStyles: props.itemStyles || "rounded-md sm:rounded-sm",
+    itemStyles: props.styles.item || "rounded-md sm:rounded-sm",
 
-    titleStyle:
-      props.titleStyle ||
+    title:
+      props.styles.title ||
       cn(
         "w-full",
         "text-center",
@@ -66,12 +67,15 @@ const PhotoNav = (props) => {
         "lg:text-5xl lg:m-6",
         "xl:text-6xl xl:m-8"
       ),
-  };
+
+    itemsContainer:
+      props.styles.itemsContainer || cn("flex", "flex-center", "h-full"),
+  }
 
   return (
-    <section className={cn("w-full", [styles.padding])}>
-      <h1 className={cn([styles.titleStyle])}>{props.title}</h1>
-      <div className={cn("flex", "flex-center", "h-full")}>
+    <section className={styles.container}>
+      <h1 className={styles.title}>{props.title}</h1>
+      <div className={styles.itemsContainer}>
         {props.items.map((item) => (
           <NavItem
             item={item}
@@ -86,7 +90,7 @@ const PhotoNav = (props) => {
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default PhotoNav;
+export default PhotoNav

@@ -1,7 +1,7 @@
-import Img from "../img";
-import Link from "next/link";
-import Button from "../button";
-import cn from "classnames";
+import Img from "../img"
+import Link from "next/link"
+import Button from "../button"
+import cn from "classnames"
 
 const NavItem = (props) => {
   /*
@@ -22,11 +22,11 @@ const NavItem = (props) => {
     hover:
       props.displayText !== "button" &&
       cn("hover:opacity-75", "duration-100", "cursor-pointer"),
-  };
+  }
 
   const containerStyle = {
     width: `${(1 / props.numItems) * 100}%`,
-  };
+  }
 
   const childStyle = {
     paddingBottom:
@@ -35,13 +35,12 @@ const NavItem = (props) => {
         : props.imgRatio === "landscape"
         ? "75%"
         : "100%",
-  };
+  }
 
+  // style={containerStyle}
+  // className={cn([styles.padding], [styles.hover])}
   const navItemContent = (
-    <div
-      style={containerStyle}
-      className={cn([styles.padding], [styles.hover])}
-    >
+    <div className="col-span-4">
       <div className={cn("w-full", "relative")}>
         <div style={childStyle} className={cn("h-0")}>
           <Img
@@ -79,14 +78,14 @@ const NavItem = (props) => {
         </div>
       )}
     </div>
-  );
+  )
 
   return props.displayText !== "button" ? ( // if button is not displayed wrap link around item
     <Link href={props.item.link}>{navItemContent}</Link>
   ) : (
     // if button is displayed it serves as a link on its own
     navItemContent
-  );
-};
+  )
+}
 
-export default NavItem;
+export default NavItem
