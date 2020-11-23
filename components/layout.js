@@ -1,12 +1,38 @@
 import Head from "next/head"
 import Link from "next/link"
-import Footer from "../footer/footer.js"
+import { useRouter } from "next/router"
+import { ShoppingCartContext } from "../contexts/shoppingCartContext"
+
+import Footer from "./footer"
+import Sidebar from "./sidebar"
+import { ShoppingCartPreview } from "./shoppingCart"
+
 import cn from "classnames"
+import { useContext } from "react"
+import Img from "./img"
 
 export const siteTitle = "BB-Shoes"
 
 const Layout = ({ children, home }) => {
-  const border = "border-solid border-2 border-black"
+  const cart = useContext(ShoppingCartContext).contents
+
+  console.log(cart)
+
+  const sideBarStyles = {
+    container: cn(
+      "col-span-2",
+      "h-full",
+      "block",
+      "border-r-2 border-secondary-500",
+      "pt-24",
+      "grid",
+      "grid-cols-2"
+    ),
+  }
+
+  const location = useRouter()
+  // const sidebar = location.pathname !== "/"
+  const sidebar = false
 
   const footerEntries = [
     {
@@ -53,15 +79,31 @@ const Layout = ({ children, home }) => {
           <div className={cn("p-3", "h-32", "relative", "overflow-hidden")}>
             <Link href="/">
               <img
-                className="h-full w-auto"
+                className="h-full w-auto cursor-pointer"
                 src="/images/logo.jpg"
                 alt="bb-shoes logo"
               />
             </Link>
           </div>
         </div>
+        <div className="h-16 border-b-2 border-secondary-900"></div>
       </header>
-      <main className="mt-24 bb-border-bottom">{children}</main>
+      <main
+        className={cn(
+          "bb-border-bottom",
+          "grid",
+          "xs:grid-cols-4 xs:gap-2",
+          "sm:grid-cols-8 sm:gap-4",
+          "md:grid-cols-8 md:gap-8",
+          "lg:grid-cols-12 lg:gap-8",
+          "xl:grid-cols-12 xl:gap-8"
+        )}
+      >
+        {sidebar && <Sidebar styles={sideBarStyles} />}
+        <section className={cn([sidebar ? "col-span-10" : "col-span-12"])}>
+          {children}
+        </section>
+      </main>
       <Footer
         entries={footerEntries}
         containerStyle={cn(
@@ -73,6 +115,7 @@ const Layout = ({ children, home }) => {
         )}
         entriesStyle={footerEntriesStyle}
       />
+      <ShoppingCartPreview />
     </>
   )
 }

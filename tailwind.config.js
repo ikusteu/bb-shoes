@@ -3,6 +3,9 @@ module.exports = {
   purge: ["./pages/**/*.js", "./components/**/*.js"],
   theme: {
     extend: {
+      transitionProperty: {
+        height: "height",
+      },
       colors: {
         primary: {
           100: "#C5CAE9",

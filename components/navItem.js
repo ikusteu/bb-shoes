@@ -1,6 +1,6 @@
-import Img from "../img"
+import Img from "./img"
 import Link from "next/link"
-import Button from "../button"
+import Button from "./button"
 import cn from "classnames"
 
 const NavItem = (props) => {
@@ -13,7 +13,8 @@ const NavItem = (props) => {
         displayText: { 'button' | 'caption' | 'over' } title display type, default = null -> no text, just image 
         textStyles: { [ tailwindCSS string ]* title additional display styles }
         item: {{ title: { string }, image: { url }, link: { url }--> href attribute }}
-        numItems: { number } number of nav items
+        numItems: { number } number of nav 
+        itemColspan: { tailwindCSS col-span value for single navItem }
       }
       
       */
@@ -40,7 +41,7 @@ const NavItem = (props) => {
   // style={containerStyle}
   // className={cn([styles.padding], [styles.hover])}
   const navItemContent = (
-    <div className="col-span-4">
+    <div className={props.itemColspan}>
       <div className={cn("w-full", "relative")}>
         <div style={childStyle} className={cn("h-0")}>
           <Img

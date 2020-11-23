@@ -1,4 +1,4 @@
-import cn from "classnames";
+import cn from "classnames"
 
 /* 
 
@@ -17,7 +17,7 @@ const Img = (props) => {
     height: props.height || "h-full",
     fit: props.fitHeight ? "w-auto h-full" : "w-full h-auto",
     center: props.center && "flex justify-center items-center",
-  };
+  }
 
   return (
     <div
@@ -35,7 +35,7 @@ const Img = (props) => {
         className={cn("max-w-none", [styles.fit])}
       />
     </div>
-  );
-};
+  )
+}
 
-export default Img;
+export default Img

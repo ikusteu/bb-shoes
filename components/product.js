@@ -1,7 +1,9 @@
 import cn from "classnames"
-import Img from "../img"
-import Link from "next/Link"
-import Button from "../button"
+import Img from "./img"
+import Link from "next/link"
+import Button from "./button"
+import { useContext } from "react"
+import { ShoppingCartContext } from "../contexts/shoppingCartContext"
 
 const Product = (props) => {
   /*
@@ -64,6 +66,8 @@ const Product = (props) => {
   styles.addStyles("priceStyle")
   styles.addStyles("buttonStyle")
 
+  const addToCart = useContext(ShoppingCartContext).addItem
+
   const itemContent = (
     <div className={cn("relative", [styles.itemStyle], [styles.innerPadding])}>
       <div className={cn("relative")} style={childStyle}>
@@ -72,20 +76,20 @@ const Product = (props) => {
             src={props.item.image}
             alt={`${props.item.category} ${props.item.name}`}
             additionalStyles={cn(
-              "h-1/2",
-              "border-2", // border-primary border-solid"
+              "h-1/2", // border-primary border-solid"
               [props.imageStyle]
             )}
             fitHeight
+            center
           />
           <div
             className={cn(
-              "h-1/2",
-              "w-full",
-              "flex",
-              "flex-col",
-              "justify-around",
-              "items-start",
+              // "h-1/2",
+              // "w-full",
+              // "flex",
+              // "flex-col",
+              // "justify-around",
+              // "items-start",
               [props.textStyle]
             )}
           >
@@ -95,6 +99,10 @@ const Product = (props) => {
               <Button
                 additionalStyles={cn([styles.buttonStyle])}
                 text="Add to Cart"
+                onClick={(e) => {
+                  e.preventDefault()
+                  addToCart(props.item)
+                }}
               />
             )}
           </div>

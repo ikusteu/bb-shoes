@@ -1,4 +1,4 @@
-import FooterEntry from "./footerEntry/footerEntry"
+import FooterEntry from "./footerEntry"
 import cn from "classnames"
 
 const Footer = (props) => {

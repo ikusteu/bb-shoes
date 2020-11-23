@@ -12,6 +12,7 @@ import NavItem from "./navItem"
         itemStyles: { tailwindCSS string } additional item styles
         displayText: { 'button' | 'caption' | 'over' } title display type, default = null -> no text, just image 
         textStyles: { [ tailwindCSS string ]* title additional display styles }
+        itemColspan: { tailwindCSS col-span value for single navItem }
     }
       
 */
@@ -61,11 +62,11 @@ const PhotoNav = (props) => {
       cn(
         "w-full",
         "text-center",
-        "xs:text-xl xs:m-3",
-        "sm:text-2xl sm:m-4",
-        "md:text-4xl md:m-5",
-        "lg:text-5xl lg:m-6",
-        "xl:text-6xl xl:m-8"
+        "xs:text-lg xs:mb-4",
+        "sm:text-2xl sm:mb-4",
+        "md:text-3xl md:mb-6",
+        "lg:text-4xl lg:mb-12",
+        "xl:text-5xl xl:mb-16"
       ),
 
     itemsContainer:
@@ -86,6 +87,7 @@ const PhotoNav = (props) => {
             textStyles={styles.textStyles}
             innerPadding={styles.innerPadding}
             itemStyles={styles.itemStyles}
+            itemColspan={props.styles.itemColspan}
           />
         ))}
       </div>
