@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@material-ui/icons": "^4.9.1",
+    "@types/classnames": "^2.2.11",
     "classnames": "^2.2.6",
+    "framer-motion": "^2.9.4",
     "material-ui": "^0.20.2",
     "next": "^10.0.1",
     "npm-upgrade": "^2.0.4",
@@ -24,7 +26,10 @@
     "tailwindcss": "^1.9.6"
   },
   "devDependencies": {
+    "@types/react": "^17.0.0",
+    "eslint-config-prettier": "^6.15.0",
     "postcss-apply": "^0.12.0",
-    "stylelint-config-recommended": "^3.0.0"
+    "stylelint-config-recommended": "^3.0.0",
+    "typescript": "^4.1.2"
   }
 }

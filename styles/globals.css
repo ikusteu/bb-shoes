@@ -1,0 +1,91 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+/* grids */
+
+@screen xs {
+  .grid-main {
+    @apply grid-cols-4 gap-2;
+  }
+  .gaps-footer {
+    @apply gap-2; 
+  }
+}
+
+@screen sm {
+  .grid-main {
+    @apply grid-cols-8 gap-4;
+  }
+  .gaps-footer{
+    @apply gap-2; 
+    
+  }
+}
+
+@screen md {
+  .grid-main {
+    @apply grid-cols-8 gap-8;
+  }
+  .gaps-footer{ 
+    @apply gap-4; 
+  }
+}
+
+@screen lg {
+  .grid-main {
+    @apply grid-cols-12 gap-8;
+  }
+  .gaps-footer{ 
+    @apply gap-2;
+  }
+}
+
+@screen xl {
+  .grid-main {
+    @apply grid-cols-12 gap-8;
+  }
+  .gaps-footer{ 
+    @apply gap-4;
+  }
+}
+
+/* end grids */
+
+button {
+  outline: none!important;
+}
+
+.-trnslt-1\/2 {
+  transform: translateX(-50%);
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+li {
+  font-family: 'poppins';
+}
+
+h1 {
+  letter-spacing: 0.125rem;
+  font-size: 2.2rem;
+}
+
+h2 {
+  margin-bottom: 3rem;
+  font-size: 1.6rem;
+}
+
+.bb-border-bottom {
+  box-shadow: 0 4px rgb(44, 45, 101), inset 0 -4px rgb(255, 105, 0);
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+}
+
+
+
