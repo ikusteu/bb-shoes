@@ -1,27 +1,17 @@
 //import from packages
 import cn from "classnames"
 import Link from "next/link"
-import { useContext } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 
-//import contexts
-import { ShoppingCartContext } from "../contexts/shoppingCartContext"
-
-//import components
+//import from local components
 import Img from "./img"
 
-export type ProductItem = {
-  id: number | string
-  name: string
-  price: string
-  image: string
-  category?: string
-  tags?: string[]
-}
+//import from custom types
+import { ProductInterface } from "../lib/customTypes"
 
-interface Props {
-  item: ProductItem
-  button?: React.Component
+interface ProductProps {
+  item: ProductInterface
+  button?: JSX.Element
   imageStyle?: string
   itemStyle?: string
   textStyle?: string
@@ -31,22 +21,7 @@ interface Props {
   innerPadding?: string
 }
 
-const Product: React.FC<Props> = (props) => {
-  /*
-        props = {
-            item: { name: {string}, price: {string}, image: {url}, category: {string} tags: {[string, ...]*} } item object,
-            button: { JSX } 
-            imageStyle: { tailwind string }
-            itemStyle: { tailwindCSS string if [0] === + add styles without changing default } style for full item
-            textStyle: { tailwindCSS string } additional style for text container
-            nameStyle: { tailwindCSS string if [0] === + add styles without changing default },
-            priceStyle: { tailwindCSS string if [0] === + add styles without changing default },
-            buttonStyle: { tailwindCSS }
-            ratio: { 'portrait' | 'landscape' } item sizing
-            innerPadding: { taiwindCSS } padding between items
-        }
-    */
-
+const Product: React.FC<ProductProps> = (props) => {
   const childStyle = {
     paddingBottom: !props.itemRatio
       ? "100%"
@@ -73,7 +48,7 @@ const Product: React.FC<Props> = (props) => {
     innerPadding:
       props.innerPadding || cn("sm:p-1", "md:p-1", "lg:p-2", "xl:p-2"),
 
-    addStyles(element) {
+    addStyles(element: string) {
       if (props[element]) {
         this[element] =
           props[element][0] === "+"
@@ -87,8 +62,6 @@ const Product: React.FC<Props> = (props) => {
   styles.addStyles("nameStyle")
   styles.addStyles("priceStyle")
   styles.addStyles("buttonStyle")
-
-  const addToCart = useContext(ShoppingCartContext).addItem
 
   return (
     <Link href="">
@@ -111,17 +84,7 @@ const Product: React.FC<Props> = (props) => {
               fitHeight
               center
             />
-            <div
-              className={cn(
-                // "h-1/2",
-                // "w-full",
-                // "flex",
-                // "flex-col",
-                // "justify-around",
-                // "items-start",
-                [props.textStyle]
-              )}
-            >
+            <div className={cn([props.textStyle])}>
               <h3 className={styles.nameStyle}>{props.item.name}</h3>
               <p className={styles.priceStyle}>{props.item.price}</p>
               {props.button}

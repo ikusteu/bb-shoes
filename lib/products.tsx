@@ -1,3 +1,10 @@
+//import from custom Types
+import { ProductInterface } from "./customTypes"
+
+//returns products based on category for getStaticProps
+export const getProducts = (category: string): ProductInterface[] =>
+  products[category]
+
 const shoe = {
   name: "Shoe",
   image: "/images/featured_temp.webp",

@@ -1,18 +1,15 @@
-//import from packages
-import cn from "classnames"
-
-interface Props {
+interface RegisterProps {
   title: string
   items: string[]
-  containerStyle: string
-  titleStyle: string
-  listStyle: string
-  itemStyle: string
+  className?: string
+  titleStyle?: string
+  listStyle?: string
+  itemStyle?: string
 }
 
-const FooterEntry: React.FC<Props> = (props) => {
+const FooterEntry: React.FC<RegisterProps> = (props) => {
   return (
-    <div className={cn([props.containerStyle])}>
+    <div className={props.className}>
       <h2 className={props.titleStyle}>{props.title}</h2>
       <ul className={props.listStyle}>
         {props.items.map((item) => (

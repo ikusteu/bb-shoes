@@ -1,18 +1,15 @@
 //import from packages
 import Link from "next/link"
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 
 //import from local components
 import { WebshopDisplayContext } from "../contexts/webshopDisplayContext"
 
 // Multi Page Navigation types and function
-type MultiPageEntry = {
-  text: string
-  href: string
-}
+import { MultiPageNavItemInterface } from "../lib/customTypes"
 
 interface MultiPageProps {
-  items: MultiPageEntry[]
+  items: MultiPageNavItemInterface[]
   className?: string
 }
 
@@ -20,8 +17,8 @@ export const MultiPageNavigation: React.FC<MultiPageProps> = (props) => {
   return (
     <div className={props.className}>
       {props.items.map((item) => (
-        <Link key={item.text} href={item.href}>
-          <div>{item.text}</div>
+        <Link key={item.name} href={item.href}>
+          <div>{item.name}</div>
         </Link>
       ))}
     </div>

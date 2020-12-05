@@ -28,8 +28,7 @@ const Footer: React.FC<Props> = (props) => {
 
   const styles = {
     // Needs to be fully rethinked
-    entriesContainer: props.entriesStyle.container || "col-span-3",
-    entriesTitle: props.entriesStyle.title || cn("h-8", "my-8"),
+    entriesTitle: props.entriesStyle.title || cn(),
     entriesList: props.entriesStyle.list || cn(""),
     entriesItem: props.entriesStyle.item || cn("h-8"),
   }

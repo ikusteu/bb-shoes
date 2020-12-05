@@ -39,21 +39,6 @@ export const photoNavCollections = [
   },
 ]
 
-export const webshopCategories = [
-  {
-    text: "Shoes",
-    category: "shoes",
-  },
-  {
-    text: "Boots",
-    category: "boots",
-  },
-  {
-    text: "Accessories",
-    category: "accessories",
-  },
-]
-
 export const footerEntries = [
   {
     title: "Collections",

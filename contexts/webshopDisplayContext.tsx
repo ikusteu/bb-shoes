@@ -4,7 +4,11 @@ import { useState, createContext } from "react"
 export const WebshopDisplayContext = createContext([{}, () => {}])
 
 export const WebshopDisplayProvider = ({ children }) => {
-  const [category, setCategory] = useState("shoes")
+  const [filters, setSilters] = useState({
+    categories: ["shoes"],
+    styles: [],
+    sizes: [],
+  })
 
   return (
     <WebshopDisplayContext.Provider value={[{ category }, setCategory]}>

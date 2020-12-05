@@ -4,94 +4,76 @@ import cn from "classnames"
 
 //import from local components
 import Img from "./img"
-import Button from "./button"
 
-import { NavItemType } from "./photoNav"
+//import custom types
+import { PhotoNavItemInterface } from "../lib/customTypes"
 
-interface Props {
-  imgRatio?: "portrait" | "landscape"
+interface NavItemInterface {
+  item: PhotoNavItemInterface
+  orientation: "portrait" | "landscape"
   displayText?: "caption" | "over"
-  innerPadding?: string
-  itemStyles: string
-  textStyles: string
-  item: NavItemType
-  itemColspan: string
+  button?: JSX.Element
+  className?: string
+  itemStyles?: string
+  textStyles?: string
 }
 
-const NavItem: React.FC<Props> = (props) => {
-  /*
-    
-    props = {
-        imgRatio: { 'portrait' | 'landscape' | null } adjusts orientation of image/element ( 4:3 ) portrait / landscape, dafeult = null -> 1:1 box
-        innerPadding: { tailwindCSS string } padding between nav items
-        itemStyles: { tailwindCSS string } additional item styles
-        displayText: { 'button' | 'caption' | 'over' } title display type, default = null -> no text, just image 
-        textStyles: { [ tailwindCSS string ]* title additional display styles }
-        item: {{ title: { string }, image: { url }, link: { url }--> href attribute }}
-        itemColspan: { tailwindCSS col-span value for single navItem }
-      }
-      
-      */
-  const styles = {
-    padding: props.innerPadding,
-    hover:
-      props.displayText !== "button" &&
-      cn("hover:opacity-75", "duration-100", "cursor-pointer"),
-  }
-
+const NavItem: React.FC<NavItemInterface> = (props) => {
   const childStyle = {
     paddingBottom:
-      props.imgRatio === "portrait"
+      props.orientation === "portrait"
         ? "133.33%"
-        : props.imgRatio === "landscape"
+        : props.orientation === "landscape"
         ? "75%"
         : "100%",
+    height: 0,
   }
 
-  // style={containerStyle}
-  // className={cn([styles.padding], [styles.hover])}
   const navItemContent = (
-    <div className={props.itemColspan}>
-      <div className={cn("w-full", "relative")}>
-        <div style={childStyle} className={cn("h-0")}>
+    <div className={props.className}>
+      <div className="w-full relative">
+        <div style={childStyle}>
           <Img
-            additionalStyles={cn("absolute", "w-full", [props.itemStyles])}
+            additionalStyles="absolute w-full"
             src={props.item.image}
-            fitHeight={props.imgRatio === "portrait"}
+            fitHeight={props.orientation === "portrait"}
             center
+            alt={props.item.name}
           />
-          {(props.displayText === "button" && ( // if textDisplay === 'button' -> render button
-            <Link href={props.item.link}>
-              <a className="w-full flex justify-center">
-                <Button
-                  className={cn("absolute", "top-3/4", [props.textStyles])}
-                  text={props.item.title}
-                  onClick={() => {}}
-                />
-              </a>
-            </Link>
-          )) ||
-            (props.displayText === "over" && ( // if textDisplay === 'over' -> render text over image
-              <h4
-                className={cn("absolute", "top-1/2", "w-full", "text-center", [
-                  props.textStyles,
-                ])}
-              >
-                {props.item.title}
-              </h4>
-            ))}
+          {
+            // if textDisplay === 'button' -> render button
+            (props.button && (
+              <Link href={props.item.href}>
+                <a className="w-full flex justify-center">{props.button}</a>
+              </Link>
+            )) ||
+              // if textDisplay === 'over' -> render text over image
+              (props.displayText === "over" && (
+                <h4
+                  className={cn(
+                    "absolute",
+                    "top-1/2",
+                    "w-full",
+                    "text-center",
+                    [props.textStyles]
+                  )}
+                >
+                  {props.item.name}
+                </h4>
+              ))
+          }
         </div>
       </div>
       {props.displayText === "caption" && ( // if textDisplay === 'caption' -> render captinon below image
         <div className={cn("w-full text-center", [props.textStyles])}>
-          {props.item.title}
+          {props.item.href}
         </div>
       )}
     </div>
   )
 
-  return props.displayText !== "button" ? ( // if button is not displayed wrap link around item
-    <Link href={props.item.link}>{navItemContent}</Link>
+  return props.button ? ( // if button is not displayed wrap link around item
+    <Link href={props.item.href}>{navItemContent}</Link>
   ) : (
     // if button is displayed it serves as a link on its own
     navItemContent

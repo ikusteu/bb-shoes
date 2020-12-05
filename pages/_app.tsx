@@ -6,9 +6,9 @@ import "../styles/globals.css"
 const MyApp = ({ Component, pageProps }) => {
   return (
     <ShoppingCartProvider>
-      <WebshopDisplayProvider>
-        <Component {...pageProps} />
-      </WebshopDisplayProvider>
+      <Component {...pageProps} />
+      {/* <WebshopDisplayProvider>
+      </WebshopDisplayProvider> */}
     </ShoppingCartProvider>
   )
 }

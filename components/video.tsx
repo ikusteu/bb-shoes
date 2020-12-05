@@ -2,7 +2,7 @@
 import cn from "classnames"
 interface Props {
   src: string
-  additionalStyles: string
+  additionalStyles?: string
   fitWidth?: boolean
 }
 

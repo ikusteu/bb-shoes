@@ -8,7 +8,7 @@ import { useContext } from "react"
 import { ShoppingCartContext } from "../contexts/shoppingCartContext"
 
 //import components
-import Footer from "./footer"
+import FooterEntry from "./footerEntry"
 import { ShoppingCartPreview } from "./shoppingCart"
 import { footerEntries } from "../tempAssets/navItems"
 
@@ -52,12 +52,20 @@ const Layout: React.FC = ({ children }) => {
         </section> */}
         {children}
       </main>
-      <Footer
-        entries={footerEntries}
-        className={cn("px-8 pt-8 pb-16", "bg-gray-900", "text-white")}
-        innerClassName="grid grid-main gaps-footer mx-auto"
-        entriesStyle={{}}
-      />
+      <footer className="w-full px-8 pt-8 pb-16 bg-gray-900 text-white">
+        <div className="grid grid-main gaps-footer mx-auto">
+          {footerEntries.map((entry) => (
+            <FooterEntry
+              key={entry.title}
+              title={entry.title}
+              items={entry.items}
+              className="col-span-3"
+              titleStyle="h-8 my-8"
+              itemStyle="h-8"
+            />
+          ))}
+        </div>
+      </footer>
       <ShoppingCartPreview />
     </>
   )
