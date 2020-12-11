@@ -6,6 +6,7 @@ module.exports = {
       transitionProperty: {
         height: "height",
       },
+      borderColor: ["hover"],
       colors: {
         primary: {
           100: "#C5CAE9",

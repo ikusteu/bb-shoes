@@ -3,10 +3,9 @@ import Shop from "../../components/shop"
 import Layout from "../../components/layout"
 
 //import from lib
-import { getCategoriesPaths } from "../../lib/categories"
 import { getProducts } from "../../lib/products"
 
-//import from types
+//import from custom types
 import { ProductInterface } from "../../lib/customTypes"
 
 interface WebshopProps {
@@ -23,16 +22,8 @@ const Webshop: React.FC<WebshopProps> = ({ products }) => {
 
 export default Webshop
 
-export const getStaticPaths = async () => {
-  const paths = getCategoriesPaths()
-  return {
-    paths,
-    fallback: false,
-  }
-}
-
-export const getStaticProps = async ({ params }) => {
-  const products = getProducts(params.category)
+export const getStaticProps = async () => {
+  const products = getProducts("shoes")
   return {
     props: {
       products,

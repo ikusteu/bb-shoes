@@ -1,23 +1,13 @@
 //import form packages
 import cn from "classnames"
 
-interface Props {
+interface ButtonProps {
   text: string
   className?: string
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-const Button: React.FC<Props> = (props) => {
-  /*
-  
-  props = {
-    text: { string, button text }
-    className: { className }
-    onClick: { function }
-  }
-  
-  */
-
+const Button: React.FC<ButtonProps> = (props) => {
   return (
     <button
       className={cn(

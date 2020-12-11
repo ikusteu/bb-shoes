@@ -1,23 +1,24 @@
-//imports from packages
+// imports from packages
 import cn from "classnames"
-import { AnimatePresence } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 
-//import local components
+// import local components
 import { MultiPageNavigation } from "./navigation"
 import Filters from "./filters"
 import Product from "./product"
 
-//import temp "static" assets i.e. lists, navItems etc.
+// import temp "static" assets i.e. lists, navItems etc.
 import { generateCategoriesNav } from "../lib/categories"
 
-//import custom types
+// import custom types
 import { ProductInterface } from "../lib/customTypes"
 
-interface RegisterProps {
+// local interfaces
+interface ShopProps {
   products: ProductInterface[]
 }
 
-const Webshop: React.FC<RegisterProps> = ({ products }) => {
+const Webshop: React.FC<ShopProps> = ({ products }) => {
   return (
     <>
       <MultiPageNavigation
@@ -51,13 +52,20 @@ const Webshop: React.FC<RegisterProps> = ({ products }) => {
       >
         <AnimatePresence exitBeforeEnter>
           {products.map((item, n: number) => (
-            <Product
+            <motion.div
               key={`${item.name}-${n}`}
-              item={item}
-              itemRatio="portrait"
-              itemStyle="xl:col-span-3 lg:col-span-3"
-              textStyle="text-center"
-            />
+              className={cn("relative xl:col-span-3 lg:col-span-3")}
+              exit={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.9, y: 32 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
+            >
+              <Product
+                item={item}
+                itemRatio="portrait"
+                textStyle="text-center"
+              />
+            </motion.div>
           ))}
         </AnimatePresence>
       </div>

@@ -8,8 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.9.1",
     "@types/classnames": "^2.2.11",
+    "@types/react-slick": "^0.23.4",
     "classnames": "^2.2.6",
     "framer-motion": "^2.9.4",
     "material-ui": "^0.20.2",
@@ -21,6 +23,7 @@
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "react-responsive-carousel": "^3.2.10",
+    "react-slick": "^0.27.13",
     "react-transition-group": "^4.4.1",
     "sass": "^1.29.0",
     "tailwindcss": "^1.9.6"

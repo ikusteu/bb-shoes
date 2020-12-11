@@ -4,7 +4,7 @@ import cn from "classnames"
 
 interface Props {
   src: string
-  type: "carousel" | "video"
+  type: "photo" | "video"
   height?: any
   className?: string
 }
@@ -20,10 +20,9 @@ const Banner: React.FC<Props> = (props) => {
       style={containerStyle}
       className={cn("flex items-center", "overflow-hidden", [props.className])}
     >
-      {(props.type === "carousel" && (
-        //image placeholder for carousel
+      {(props.type === "photo" && (
         <img className="w-full h-auto" src="/images/slider_temp.jpg" />
-      )) /*switch video or carousel*/ ||
+      )) /*switch photo or video*/ ||
         (props.type === "video" && (
           <video autoPlay loop muted>
             <source

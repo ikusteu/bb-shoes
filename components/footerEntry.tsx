@@ -1,3 +1,7 @@
+// import from packages
+import cn from "classnames"
+
+// local interfaces
 interface RegisterProps {
   title: string
   items: string[]
@@ -5,15 +9,23 @@ interface RegisterProps {
   titleStyle?: string
   listStyle?: string
   itemStyle?: string
+  onClick?: (e: any) => void
 }
 
+// main component function
 const FooterEntry: React.FC<RegisterProps> = (props) => {
   return (
     <div className={props.className}>
-      <h2 className={props.titleStyle}>{props.title}</h2>
+      <h2 className={cn([props.titleStyle], "cursor-default")}>
+        {props.title}
+      </h2>
       <ul className={props.listStyle}>
         {props.items.map((item) => (
-          <li className={props.itemStyle} key={item}>
+          <li
+            onClick={props.onClick}
+            className={cn([props.itemStyle], "cursor-pointer")}
+            key={item}
+          >
             {item}
           </li>
         ))}

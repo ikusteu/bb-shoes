@@ -16,6 +16,7 @@ interface NavItemInterface {
   className?: string
   itemStyles?: string
   textStyles?: string
+  onClick?: (e: React.MouseEvent<any>) => void
 }
 
 const NavItem: React.FC<NavItemInterface> = (props) => {
@@ -30,7 +31,7 @@ const NavItem: React.FC<NavItemInterface> = (props) => {
   }
 
   const navItemContent = (
-    <div className={props.className}>
+    <div className={props.className} onClick={props.onClick}>
       <div className="w-full relative">
         <div style={childStyle}>
           <Img
@@ -72,8 +73,8 @@ const NavItem: React.FC<NavItemInterface> = (props) => {
     </div>
   )
 
-  return props.button ? ( // if button is not displayed wrap link around item
-    <Link href={props.item.href}>{navItemContent}</Link>
+  return !props.button && !props.onClick ? ( // if button is not displayed wrap link around item
+    <Link href={props.item.link}>{navItemContent}</Link>
   ) : (
     // if button is displayed it serves as a link on its own
     navItemContent
